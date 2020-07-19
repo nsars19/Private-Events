@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple event creation/subscription application. Users will be able to both create and attend events when they are signed in. Signing in only requires users to select a username.
 
-Things you may want to cover:
+This purpose of this project is to build upon and demonstrate my knowledge of Rails' Active Record Associations, while also further developing the foundational knowledge needed to develop complex Rails applications.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
