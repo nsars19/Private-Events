@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    
+    session[:current_user_id] = @user.id
 
     if @user.save
       redirect_to user_path(@user.id)
@@ -17,8 +19,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
-    session[:current_user_id] = @user.id
   end
 
   private

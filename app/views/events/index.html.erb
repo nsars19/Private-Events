@@ -1,19 +1,27 @@
-<section class='section'>  
-  <div class='title'>
-    All Events
-  </div>
+<div class='current-user'>
+  <p>currently logged in as <%= User.find(session[:current_user_id]).username %></p>
+</div>
+<section class='section'>
+  <div class='container'>
+    Hi, <%= User.find(session[:current_user_id]).username %>
+    <div class='title'>
+      All Events
+    </div>
+  </div>  
 </section>
 <section class='section'>
-  <div class='columns is-multiline is-variable is-8'>
-    <% @events.each do |event| %>
-      <div class='column is-one-quarter'>
-        <div class='title'>
-          <%= link_to event.event_name, event_path(event) %>
-          <div class='subtitle'>
-            <%= event.description %>
+  <div class='container'>
+    <div class='columns is-multiline is-variable is-8'>
+      <% @events.each do |event| %>
+        <div class='column is-one-quarter'>
+          <div class='title'>
+            <%= link_to event.event_name, event_path(event) %>
+            <div class='subtitle'>
+              <%= event.description %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  </div>  
 </section>

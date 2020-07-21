@@ -1,3 +1,15 @@
+<div class='header'>
+  <div class='columns'>
+    <div class='column'>
+      <div class='button'>
+        <%= link_to 'All Events', events_path %>
+      </div>
+      <div class='button'>
+        <%= link_to 'My Events', user_path(User.find(session[:current_user_id])) %>
+      </div>
+    </div>  
+  </div>
+</div>  
 <div class='section'>
   <div class='title'>
     <%= @event.event_name %>
@@ -5,15 +17,23 @@
   <div class='subtitle'>
     <%= @event.description %>
   </div>
-  <div class='event-creator'>
-    Created by <%= @event.creator.username %>
+  <div class='event-creator' style="font-size:16px">
+    Created by <%= link_to @event.creator.username, user_path(@event.creator) %>
   </div>
-  <div class='buttons'>
-    <div class='button'>
-      <%= link_to 'All Events', events_path %>
+</div>
+<div class='section' style='padding-top:0px'>
+  <% if @event.attendees.any? %>
+    Attending this Event:
+    <div class='attendees'>
+      <% @event.attendees.each do |attendee| %>
+        <li class='attendee'>
+          <%= attendee.username %>
+        </li>
+      <% end %>  
     </div>
-    <div class='button'>
-      <%= link_to 'My Events', user_path(User.find(session[:current_user_id])) %>
+  <% else %>
+    <div class='attendees'>
+      Be the first to attend this event!
     </div>
-  </div>
-</div>    
+  <% end %>
+</div>
