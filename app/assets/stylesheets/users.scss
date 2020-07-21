@@ -1,3 +1,24 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.events-created {
+    .container {
+        border-right: 1px solid rgba(95, 95, 95, 0.774);
+        border-bottom: 1px solid rgba(95, 95, 95, 0.774);
+        border-radius: 6px;
+        box-shadow: 2px 2px 4px rgba(95, 95, 95, 1);
+        padding: 8px;
+    }
+
+}
+.events-attended {
+    .container {
+        border-right: 1px solid rgba(95, 95, 95, 0.774);
+        border-bottom: 1px solid rgba(95, 95, 95, 0.774);
+        border-radius: 6px;
+        box-shadow: 2px 2px 4px rgba(95, 95, 95, 1);
+        padding: 8px;
+    }
+
+}

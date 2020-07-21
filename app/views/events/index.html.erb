@@ -1,14 +1,9 @@
 <%= render 'header' %>
-<section class='section'>
+<div class='section'> 
   <div class='container'>
-    Hi, <%= User.find(session[:current_user_id]).username %>
-    <div class='title'>
-      All Events
+    <div class='title is-2'>
+      <h3>All Events</h3>
     </div>
-  </div>  
-</section>
-<section class='section'>
-  <div class='container'>
     <div class='columns is-multiline is-variable is-8'>
       <% @events.each do |event| %>
         <div class='column is-one-quarter'>
@@ -22,4 +17,4 @@
       <% end %>
     </div>
   </div>  
-</section>
+</div>
