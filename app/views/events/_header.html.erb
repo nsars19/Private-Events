@@ -1,0 +1,32 @@
+<div class='section'>  
+  <div class='container'>
+    <div class='header'>
+      <div class='level'>
+        <div class='level-left'>
+          <div class='level-item'>
+            <div class='button'>
+              <%= link_to 'All Events', events_path %>
+            </div>
+            <div class='button'>
+              <%= link_to 'My Events', user_path(User.find(session[:current_user_id])) %>
+            </div>
+          </div>  
+        </div>  
+        <div class='level-right'>
+          <div class='level-item'>
+            <div class="field has-addons">
+              <p class="control">
+                <input class="input" type="text" placeholder="Find an Event..">
+              </p>
+              <p class="control">
+                <button class="button">
+                  Search
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>  
+  </div>
+</div>  

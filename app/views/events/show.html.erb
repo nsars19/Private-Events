@@ -1,15 +1,4 @@
-<div class='header'>
-  <div class='columns'>
-    <div class='column'>
-      <div class='button'>
-        <%= link_to 'All Events', events_path %>
-      </div>
-      <div class='button'>
-        <%= link_to 'My Events', user_path(User.find(session[:current_user_id])) %>
-      </div>
-    </div>  
-  </div>
-</div>  
+<%= render 'header' %>
 <div class='section'>
   <div class='title'>
     <%= @event.event_name %>

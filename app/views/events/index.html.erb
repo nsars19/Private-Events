@@ -1,6 +1,4 @@
-<div class='current-user'>
-  <p>currently logged in as <%= User.find(session[:current_user_id]).username %></p>
-</div>
+<%= render 'header' %>
 <section class='section'>
   <div class='container'>
     Hi, <%= User.find(session[:current_user_id]).username %>
