@@ -1,0 +1,22 @@
+<section class="section">
+  <div class='columns is-centered'>
+    <div>
+      <div class="container">
+        <h1 class="title">
+          Welcome to EventWorld
+        </h1>
+        <p class="subtitle">
+          Your first stop for Events!
+        </p>
+      </div>
+    </div>  
+  </div>  
+</section>
+<div class='columns is-centered'>
+  <div class="column is-narrow">
+    <%= form_for @user do |f| %>
+      <%= f.text_field :username %>
+      <%= f.submit "Sign In" %>
+    <% end %>  
+  </div>
+</div>  

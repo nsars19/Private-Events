@@ -1,0 +1,31 @@
+<div class='section'>
+  <div class='title'>
+    <h2>Welcome <%= @user.username %></h2>
+  </div>
+</div>
+<div>
+  <div class='links'>
+    <div class="columns">
+      <div class='column is-one-fifth'>
+        <p>
+          <%= link_to "Create an Event", new_event_path %>
+        </p>
+      </div>
+      <div class='column is-one-fifth'>
+        <p>
+          <%= link_to "Find Events", events_path %>
+        </p>
+      </div>  
+    </div>
+  </div>
+</div>
+<div class="created-events">
+  <div class='columns'>
+    <% @user.created_events.each do |event| %>
+      <div class=column>
+        <div class='title'>
+        </div>  
+      </div>
+    <% end %>  
+  </div>
+</div>  
