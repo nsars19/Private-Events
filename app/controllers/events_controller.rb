@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.build(event_params)
+    @user = User.find session[:current_user_id]
+    @event = @user.created_events.build(event_params)
     @event.creator_id = session[:current_user_id]
 
     if @event.save
@@ -12,6 +13,14 @@ class EventsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @event = Event.find(params[:id])
+  end
+
+  def index
+    @events = Event.all
   end
 
   private

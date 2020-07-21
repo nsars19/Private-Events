@@ -1,0 +1,19 @@
+<section class='section'>  
+  <div class='title'>
+    All Events
+  </div>
+</section>
+<section class='section'>
+  <div class='columns is-multiline is-variable is-8'>
+    <% @events.each do |event| %>
+      <div class='column is-one-quarter'>
+        <div class='title'>
+          <%= link_to event.event_name, event_path(event) %>
+          <div class='subtitle'>
+            <%= event.description %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
