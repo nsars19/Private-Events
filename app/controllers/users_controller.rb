@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
     session[:current_user_id] = nil
 
     redirect_to new_user_path
