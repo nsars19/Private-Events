@@ -1,3 +1,6 @@
+<div class='header'>
+  <%= link_to 'Sign Out', user_path(current_user), method: :delete %>
+</div>
 <div class='section'>  
   <div class='container' style='margin: 0px;'>
     <div class='header'>
@@ -8,7 +11,7 @@
               <%= link_to 'All Events', events_path %>
             </div>
             <div class='button'>
-              <%= link_to 'My Events', user_path(User.find(session[:current_user_id])) %>
+              <%= link_to 'My Events', user_path(current_user) %>
             </div>
           </div>  
         </div>  

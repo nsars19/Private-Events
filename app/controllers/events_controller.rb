@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  helper_method :current_user
+  
   def new
     @event = Event.new
   end

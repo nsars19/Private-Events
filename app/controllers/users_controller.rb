@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  #before_action: :user_login
-
+  skip_before_action :require_login, only: [:new, :create]
+  
   def new
     @user = User.new
   end
@@ -21,6 +21,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @upcoming_events = current_user.upcoming_events
     @prev_events = current_user.previous_events
+  end
+
+  def destroy
+    current_user.destroy
+    session[:current_user_id] = nil
+
+    redirect_to new_user_path
   end
 
   private

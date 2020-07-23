@@ -24,6 +24,15 @@
         <div class='title is-4'>
           <h4>Upcoming Events</h4>
         </div>
+        <% if @user.upcoming_events.none? %>
+          <div class='columns is-vcentered'>
+            <div class='column'>
+              <div class='events-none'>
+                <p>No upcoming events</p>
+              </div>
+            </div>  
+          </div>    
+        <% end %>
         <div class='columns is-multiline is-variable is-3'>
           <% @user.upcoming_events.each do |event| %>
             <div class='column is-one-quarter' id='event'>
@@ -46,6 +55,15 @@
         <div class='title is-4'>
           <h4>Previous Events</h4>
         </div>
+        <% if @user.previous_events.none? %>
+          <div class='columns is-vcentered'>
+            <div class='column'>
+              <div class='events-none'>
+                <p>No previous events</p>
+              </div>
+            </div>  
+          </div>  
+        <% end %>
         <div class='columns is-multiline is-variable is-3'>
           <% @user.previous_events.each do |event| %>
             <div class='column is-one-quarter' id='event'>
