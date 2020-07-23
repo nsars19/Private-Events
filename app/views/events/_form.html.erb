@@ -1,5 +1,11 @@
 <%= form_for(@event) do |f| %>
   <%= f.text_field :event_name, placeholder: 'Event Name' %>
-  <%= f.text_field :description, placeholder: 'Description' %>
+  <%= f.text_field :description, as: :text, placeholder: 'Description' %>
+  <div>
+    <%= f.datetime_select :event_date, {ampm: true, 
+                                        minute_step: 15,
+                                        order: [:day, :month, :year]},
+                                        {class: 'form-control'} %>
+  </div>                                      
   <%= f.submit "Create Event!" %>
 <% end %>  
