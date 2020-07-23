@@ -1,27 +1,77 @@
 <%= render 'header' %>
 <div class='section'> 
   <div class='container'>
-    <div class='title is-2'>
+    <div class='title is-3'>
       <h3>All Events</h3>
     </div>
-    <div class='columns is-multiline is-variable is-8'>
-      <% @events.each do |event| %>
-        <div class='column is-one-quarter'>
-          <div class='event-wrapper'>
-            <div class='title is-5'>
-              <%= event.event_name %>
-              <div class='subtitle is-6'>
-                <%= event.description %>
+    <div class='events-container-index'>
+      <div class='container'>
+        <div class='title is-4'>
+          <h4>Upcoming events</h4>
+        </div>
+        <div class='columns is-multiline is-variable is-8' id='events-container'>
+          <% if @upcoming_events.none? %>
+            <div class='column'>
+              <div class='events-none'>
+                <p>No upcoming events</p>
               </div>
-              <div class='navigation'>
-                <div class='button'>
-                  <%= link_to 'See this Event', event_path(event) %>
+            </div>  
+          </div>   
+          <% else %>  
+            <% @upcoming_events.each do |event| %>
+              <div class='column is-one-quarter'>
+                <div class='event-wrapper'>
+                  <div class='title is-5'>
+                    <%= event.event_name %>
+                    <div class='subtitle is-6'>
+                      <%= event.description %>
+                    </div>
+                    <div class='navigation'>
+                      <div class='button'>
+                        <%= link_to 'See this Event', event_path(event) %>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>  
+            <% end %>
+          <% end %>  
+        </div>
+      </div>  
+    </div>  
+    <div class='events-container-index'>
+      <div class='container'>
+        <div class='title is-4'>
+          <h4>Previous events</h4>
+        </div>
+        <div class='columns is-multiline is-variable is-8' id='events-container'>
+          <% if @previous_events.none? %>
+            <div class='column'>
+              <div class='events-none'>
+                <p>No upcoming events</p>
               </div>
-            </div>
-          </div>
-        </div>  
-      <% end %>
-    </div>
+            </div>   
+          <% else %>  
+            <% @previous_events.each do |event| %>
+              <div class='column is-one-quarter'>
+                <div class='event-wrapper'>
+                  <div class='title is-5'>
+                    <%= event.event_name %>
+                    <div class='subtitle is-6'>
+                      <%= event.description %>
+                    </div>
+                    <div class='navigation'>
+                      <div class='button'>
+                        <%= link_to 'See this Event', event_path(event) %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            <% end %>
+          <% end %> 
+        </div>
+      </div>
+    </div>    
   </div>  
 </div>

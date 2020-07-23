@@ -1,28 +1,13 @@
-<div class='section'>
-  <div class='container'>
-    <div class='links'>
-      <div class="columns">
-        <div class='column is-one-fifth'>
-          <div class='buttons' style='margin-bottom: 12px'>
-            <div class='button'>
-              <%= link_to "Create an Event", new_event_path %>
-            </div>
-            <div class='button'>
-              <%= link_to "Find Events", events_path %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>    
+<%= render 'header' %>
+<div class='section'>   
   <div class='container'>
     <div class='events-attended'>
-        <div class='title is-3'>
-          <h2><%= @user.username %>'s Attended Events</h2>
-        </div>
+      <div class='title is-3'>
+        <h2><%= @user.username %>'s Attended events</h2>
+      </div>
       <div class='container' id='events-attended-container'>
         <div class='title is-4'>
-          <h4>Upcoming Events</h4>
+          <h4>Upcoming events</h4>
         </div>
         <% if @user.upcoming_events.none? %>
           <div class='columns is-vcentered'>
@@ -32,28 +17,29 @@
               </div>
             </div>  
           </div>    
-        <% end %>
-        <div class='columns is-multiline is-variable is-3'>
-          <% @user.upcoming_events.each do |event| %>
-            <div class='column is-one-quarter' id='event'>
-              <div class='event-wrapper'>
-                <div class='title is-5'>
-                  <%= event.event_name %>
-                </div>
-                <div class='subtitle is-6'>
-                  <%= event.description %>
-                </div>
-                <div class='navigation'>
-                  <div class='button'>
-                    <%= link_to 'See this Event', event_path(event) %>
+        <% else %>
+          <div class='columns is-multiline is-variable is-3' id='events-container'>
+            <% @user.upcoming_events.each do |event| %>
+              <div class='column is-one-quarter' id='event'>
+                <div class='event-wrapper'>
+                  <div class='title is-5'>
+                    <%= event.event_name %>
                   </div>
-                </div>
+                  <div class='subtitle is-6'>
+                    <%= event.description %>
+                  </div>
+                  <div class='navigation'>
+                    <div class='button'>
+                      <%= link_to 'See this Event', event_path(event) %>
+                    </div>
+                  </div>
+                </div>  
               </div>  
-            </div>  
-          <% end %> 
-        </div>
+            <% end %> 
+          </div>
+        <% end %>  
         <div class='title is-4'>
-          <h4>Previous Events</h4>
+          <h4>Previous events</h4>
         </div>
         <% if @user.previous_events.none? %>
           <div class='columns is-vcentered'>
@@ -63,36 +49,37 @@
               </div>
             </div>  
           </div>  
-        <% end %>
-        <div class='columns is-multiline is-variable is-3'>
-          <% @user.previous_events.each do |event| %>
-            <div class='column is-one-quarter' id='event'>
-              <div class='event-wrapper'>
-                <div class='title is-5'>
-                  <%= event.event_name %>
-                </div>
-                <div class='subtitle is-6'>
-                  <%= event.description %>
-                </div>
-                <div class='navigation'>
-                  <div class='button'>
-                    <%= link_to 'See this Event', event_path(event) %>
+        <% else %>
+          <div class='columns is-multiline is-variable is-3' id='events-container'>
+            <% @user.previous_events.each do |event| %>
+              <div class='column is-one-quarter' id='event'>
+                <div class='event-wrapper'>
+                  <div class='title is-5'>
+                    <%= event.event_name %>
                   </div>
-                </div>
+                  <div class='subtitle is-6'>
+                    <%= event.description %>
+                  </div>
+                  <div class='navigation'>
+                    <div class='button'>
+                      <%= link_to 'See this Event', event_path(event) %>
+                    </div>
+                  </div>
+                </div>  
               </div>  
-            </div>  
-          <% end %> 
-        </div>
+            <% end %> 
+          </div>
+        <% end %>  
       </div>
     </div>
   </div>
     <div class='container' style='padding-top: 24px'>
     <div class="events-created">
       <div class='title is-3'>
-        <h2><%= @user.username %>'s Created Events</h2>
+        <h2><%= @user.username %>'s Created events</h2>
       </div>
       <div class='container' id='events-created-container'>
-        <div class='columns is-multiline is-variable is-3'>
+        <div class='columns is-multiline is-variable is-3' id='events-container'>
           <% @user.created_events.each do |event| %>
             <div class='column is-one-quarter' id='event'>
               <div class='event-wrapper'>
