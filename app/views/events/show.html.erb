@@ -1,28 +1,32 @@
 <%= render 'header' %>
 <div class='section'>
-  <div class='title'>
-    <%= @event.event_name %>
-  </div>
-  <div class='subtitle'>
-    <%= @event.description %>
-  </div>
-  <div class='event-creator' style="font-size:16px">
-    Created by <%= link_to @event.creator.username, user_path(@event.creator) %>
-  </div>
+  <div class='container'>  
+    <div class='title'>
+      <%= @event.event_name %>
+    </div>
+    <div class='subtitle'>
+      <%= @event.description %>
+    </div>
+    <div class='event-creator' style="font-size:16px">
+      Created by <%= link_to @event.creator.username, user_path(@event.creator) %>
+    </div>
+  </div>  
 </div>
 <div class='section' style='padding-top:0px'>
-  <% if @event.attendees.any? %>
-    Attending this Event:
-    <div class='attendees'>
-      <% @event.attendees.each do |attendee| %>
-        <li class='attendee'>
-          <%= attendee.username %>
-        </li>
-      <% end %>  
-    </div>
-  <% else %>
-    <div class='attendees'>
-      Be the first to attend this event!
-    </div>
-  <% end %>
+  <div class='container'>  
+    <% if @event.attendees.any? %>
+      Attending this Event:
+      <div class='attendees'>
+        <% @event.attendees.each do |attendee| %>
+          <li class='attendee'>
+            <%= attendee.username %>
+          </li>
+        <% end %>  
+      </div>
+    <% else %>
+      <div class='attendees'>
+        Be the first to attend this event!
+      </div>
+    <% end %>
+  </div> 
 </div>
