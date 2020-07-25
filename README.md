@@ -1,4 +1,6 @@
 # README
+live site @ https://ancient-gorge-61711.herokuapp.com/events
+
 
 This is a simple event creation/subscription application. Users will be able to both create and attend events when they are signed in. Signing in only requires users to select a username.
 
