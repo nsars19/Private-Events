@@ -16,6 +16,13 @@
 
  @import "bulma";
 
+/* 
+  This makes all columns the same height
+.column {
+    display: flex;
+  }
+ */ 
+
 .events-created {
     .container {
         padding: 8px;

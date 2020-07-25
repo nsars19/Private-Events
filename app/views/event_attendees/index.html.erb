@@ -1,0 +1,44 @@
+<%= render 'header' %>
+<div class='section'>   
+  <div class='container'>
+    <div class='title is-3'>
+      <%= current_user.username %>'s Invites
+    </div>
+    <div class='events-container'>
+      <div class='container' id='events-attended-container'>
+        <% if current_user.event_attendees.none? %>
+          <div class='columns is-vcentered'>
+            <div class='column'>
+              <div class='events-none'>
+                <p>No Invites :(</p>
+              </div>
+            </div>  
+          </div>    
+        <% else %>
+          <div class='columns is-multiline is-variable is-3' id='events-container'>
+            <% @events.each do |event| %>
+              <div class='column is-one-quarter' id='event'>
+                <div class='event-wrapper'>
+                  <div class='title is-5'>
+                    <%= event.event_name %>
+                  </div>
+                  <div class='subtitle is-6'>
+                    <%= event.description %>
+                  </div>
+                  <div class='navigation'>
+                    <div class='button'>
+                      <%= link_to 'See this Event', event_path(event) %>
+                    </div>
+                    <div class='button'>
+                      <%= link_to 'Accept invitation', accept_invitation_path(event_id: event.id) %>
+                    </div>
+                  </div>
+                </div>  
+              </div>  
+            <% end %> 
+          </div>
+        <% end %>
+      </div>
+    </div>  
+  </div>
+</div>    

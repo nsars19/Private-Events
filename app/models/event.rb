@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   scope :past, -> { where("event_date < :time_now",
     {time_now: Time.now}) }
 
-  scope :upcoming, -> { where("event_date > :time_now",
+  scope :upcoming, -> { where("event_date >= :time_now",
     {time_now: Time.now}) }
 
   # def self.past
