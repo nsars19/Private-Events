@@ -9,11 +9,13 @@ class EventAttendeesController < ApplicationController
   def create
     @event = Event.find(cookies[:event_id])
     @user = User.where(username: params[:event_attendee][:invited_user]).first
-    @invite = EventAttendee.create(
-      attended_event_id: @event.id,
-      event_attendee_id: @user.id
-    )
+    @invite = EventAttendee.new
 
+    render :new and return if @user.nil?
+
+    @invite.attended_event_id = @event.id
+    @invite.event_attendee_id = @user.id
+    
     if @invite.save
       redirect_to event_path(@event)
     else

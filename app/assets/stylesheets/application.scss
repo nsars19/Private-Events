@@ -22,7 +22,17 @@
     display: flex;
   }
  */ 
-
+html {
+    background-color:  rgb(229, 222, 235);
+    .header{
+        .button {
+            background-color: whitesmoke;
+        }
+        .input {
+            background-color: whitesmoke;
+        }
+    }
+}
 .events-created {
     .container {
         padding: 8px;
@@ -37,6 +47,10 @@
     border-radius: 6px;
     box-shadow: 2px 2px 6px rgba(126, 126, 126, 1);
     padding: 5px;
+    background-color: whitesmoke;
+    .button {
+        background-color: rgb(240, 240, 240);
+    }
 }
 
 .events-none {
